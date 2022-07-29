@@ -456,3 +456,37 @@ console.log(sortedPriceList([
     {name: 'onion', price: 7, category: 'vegetables'},
     {name: 'fish', price: 42, category: 'meat'},
 ]));*/
+
+function employeeBirthdays(employee, month) {
+    let employeeMap = [...employee];
+    let map = new Map();
+    let today = new Date();
+    let dayOfBirth;
+    let age;
+
+    const countAge = () => {
+        for (const element of employeeMap) {
+            let ageInSeconds = today.getTime() - new Date(element.birthday).getTime();
+            let ageConvert = new Date(ageInSeconds)
+            age = Math.abs(ageConvert.getUTCFullYear() - 1970);
+            console.log(age)
+        }
+    }
+    countAge();
+
+
+    return today;
+
+}
+
+const employeeData = [
+    {name: 'Viktor Viktorov', birthday: '1989-08-20'},
+    {name: 'Petro Petrov', birthday: '1985-08-22'},
+    {name: 'Vasyl Vasylov', birthday: '1999-09-10'},
+    {name: 'Vlad Vladov', birthday: '1991-06-02'},
+    {name: 'Alex Alexov', birthday: '1994-09-15'},
+    {name: 'Boris Borisov', birthday: '1995-01-30'},
+    {name: 'Stas Stasov', birthday: '1998-10-08'},
+]
+
+console.log(employeeBirthdays(employeeData, 2))
