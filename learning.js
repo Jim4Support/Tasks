@@ -436,7 +436,6 @@ console.log(wordsCounter(text))
         }
     }
 
-
     for (const [first, second] of checkList.values()) {
         let sum = first.price + second.price;
         //checkList.set('full: ', sum)
@@ -457,36 +456,39 @@ console.log(sortedPriceList([
     {name: 'fish', price: 42, category: 'meat'},
 ]));*/
 
+
 function employeeBirthdays(employee, month) {
     let employeeMap = [...employee];
     let map = new Map();
     let today = new Date();
     let dayOfBirth;
     let age;
-
-    const countAge = () => {
+    let setMonth = new Date(today.setMonth(today.getMonth() + month)).toDateString().slice(4, 7) + ' ' + today.getFullYear();
+    console.log(setMonth)
+    const setBirthdayInMap = () => {
         for (const element of employeeMap) {
             let ageInSeconds = today.getTime() - new Date(element.birthday).getTime();
-            let ageConvert = new Date(ageInSeconds)
-            age = Math.abs(ageConvert.getUTCFullYear() - 1970);
-            console.log(age)
+            let ageConvertToDate = new Date(ageInSeconds);
+            age = Math.abs(ageConvertToDate.getUTCFullYear() - 1970);
+            dayOfBirth = element.birthday.slice(8);
+            if (map.has(setMonth) && setMonth.slice(0, 3).toString() === new Date(element.birthday).toDateString().slice(4, 7)) {
+                map.set(setMonth, map.get(setMonth).concat([{day: dayOfBirth, name: element.name, age: age}]));
+            } else if (setMonth.slice(0, 3).toString() === new Date(element.birthday).toDateString().slice(4, 7)) {
+                map.set(setMonth, [{day: dayOfBirth, name: element.name, age: age}]);
+            }
         }
+        return console.log(map);
     }
-    countAge();
-
-
-    return today;
-
+    setBirthdayInMap();
 }
 
 const employeeData = [
-    {name: 'Viktor Viktorov', birthday: '1989-08-20'},
+    {name: 'Taras Tarasov', birthday: '1989-07-28'},
     {name: 'Petro Petrov', birthday: '1985-08-22'},
-    {name: 'Vasyl Vasylov', birthday: '1999-09-10'},
+    {name: 'Vasyl Vasylov', birthday: '1999-07-10'},
     {name: 'Vlad Vladov', birthday: '1991-06-02'},
     {name: 'Alex Alexov', birthday: '1994-09-15'},
     {name: 'Boris Borisov', birthday: '1995-01-30'},
     {name: 'Stas Stasov', birthday: '1998-10-08'},
 ]
-
-console.log(employeeBirthdays(employeeData, 2))
+console.log(employeeBirthdays(employeeData, 0))
