@@ -274,7 +274,7 @@ console.log(renderField([
 // Test #7.2
 /*
 function gameStatus(field) {
-    let arrX = [
+    let sortedArrayX = [
         [x1 = (field[0]===1 && field[1]===1 && field[2]===1) ? 'x' : false],
         [x2 = (field[3]===1 && field[4]===1 && field[5]===1) ? 'x' : false],
         [x3 = (field[6]===1 && field[7]===1 && field[8]===1) ? 'x' : false],
@@ -402,60 +402,8 @@ class Task {
 }
 */
 
-/*
-let text = 'раз два три чотири раз раз два два два два два два п`ять шість п`ять п`ять вісім одинадцять вісім';
 
-function wordsCounter(text) {
-    let obj = {};
-    let txt = text.split(/\s+/);
-    for (const words of txt) {
-        obj[words]===undefined ? obj[words] = 1 : obj[words]++;
-    }
-    return(obj)
-}
-console.log(wordsCounter(text))
-*/
-// sort by category | print all sum of price | print sum of price every category
 
-function sortedPriceList(array) {
-    let checkList = new Map();
-    let arr = [...array];
-
-    let fullPrice = arr
-        .map(item => item.price)
-        .reduce((a, b) => a + b);
-
-    for (let i = 0; i < arr.length; i++) {
-        if (checkList.has(arr[i].category)) {
-            checkList.set(arr[i].category, checkList.get(arr[i].category)
-                .concat([{name: arr[i].name, price: arr[i].price}]))
-        } else {
-            checkList.set(arr[i].category, [{name: arr[i].name, price: arr[i].price}]);
-        }
-    }
-
-    let checkListModified = new Map();
-    for (const [category, items] of checkList) {
-        let sum = 0;
-        items.map(item => {
-            sum += item.price
-        })
-        checkListModified.set(category, checkList.get(category).concat({total_price: sum}))
-    }
-
-    console.log(checkListModified);
-    return ('\n full price: ' + fullPrice);
-}
-
-console.log(sortedPriceList([
-    {name: 'chicken', price: 32, category: 'meat'},
-    {name: 'apple', price: 12, category: 'fruits'},
-    {name: 'sss', price: 72, category: 'fruits'},
-    {name: 'potato', price: 15, category: 'vegetables'},
-    {name: 'pineapple', price: 22, category: 'fruits'},
-    {name: 'onion', price: 7, category: 'vegetables'},
-    {name: 'fish', price: 42, category: 'meat'},
-]));
 
 /*function employeeBirthdays(employee, month) {
     let employeeMap = [...employee];
