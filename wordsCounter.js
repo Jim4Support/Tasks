@@ -4,8 +4,9 @@ function wordsCounter(text) {
     let obj = {};
     let txt = text.split(/\s+/);
     for (const words of txt) {
-        obj[words]===undefined ? obj[words] = 1 : obj[words]++;
+        obj[words] === undefined ? obj[words] = 1 : obj[words]++;
     }
-    return(obj)
+    return (obj)
 }
+
 console.log(wordsCounter(text))

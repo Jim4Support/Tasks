@@ -1,4 +1,3 @@
-
 // sort by category | print all sum of price | print sum of price from every category
 sortedPriceList([
     {name: 'chicken', price: 32, category: 'meat'},
@@ -11,7 +10,7 @@ sortedPriceList([
 
 function sortedPriceList(array) {
     let checkList = new Map();
-    let sortedArray = [...array].sort((a,b) => a.name.localeCompare(b.name));
+    let sortedArray = [...array].sort((a, b) => a.name.localeCompare(b.name));
 
     let fullPrice = sortedArray
         .map(item => item.price)
@@ -35,5 +34,6 @@ function sortedPriceList(array) {
         checkListModified.set(category, checkList.get(category).concat({total_price: sum}))
     }
 
-    console.log(checkListModified, '\n full price: ' + fullPrice);
+    checkListModified.forEach((value, key) => console.log(key + '\n', ...value));
+    return console.log('full price: ' + fullPrice);
 }
