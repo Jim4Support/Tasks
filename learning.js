@@ -415,49 +415,49 @@ function wordsCounter(text) {
 }
 console.log(wordsCounter(text))
 */
-
 // sort by category | print all sum of price | print sum of price every category
-/*function sortedPriceList(array) {
+
+function sortedPriceList(array) {
     let checkList = new Map();
     let arr = [...array];
 
-    let total = arr
+    let fullPrice = arr
         .map(item => item.price)
         .reduce((a, b) => a + b);
 
-
     for (let i = 0; i < arr.length; i++) {
         if (checkList.has(arr[i].category)) {
-            checkList
-                .set(arr[i].category, checkList.get(arr[i].category)
-                    .concat([{name: arr[i].name, price: arr[i].price}]))
+            checkList.set(arr[i].category, checkList.get(arr[i].category)
+                .concat([{name: arr[i].name, price: arr[i].price}]))
         } else {
             checkList.set(arr[i].category, [{name: arr[i].name, price: arr[i].price}]);
         }
     }
 
-    for (const [first, second] of checkList.values()) {
-        let sum = first.price + second.price;
-        //checkList.set('full: ', sum)
-        console.log(sum)
-        }
+    let checkListModified = new Map();
+    for (const [category, items] of checkList) {
+        let sum = 0;
+        items.map(item => {
+            sum += item.price
+        })
+        checkListModified.set(category, checkList.get(category).concat({total_price: sum}))
+    }
 
-    console.log(checkList);
-    return ('\n total price: ' + total);
+    console.log(checkListModified);
+    return ('\n full price: ' + fullPrice);
 }
-
 
 console.log(sortedPriceList([
     {name: 'chicken', price: 32, category: 'meat'},
     {name: 'apple', price: 12, category: 'fruits'},
+    {name: 'sss', price: 72, category: 'fruits'},
     {name: 'potato', price: 15, category: 'vegetables'},
     {name: 'pineapple', price: 22, category: 'fruits'},
     {name: 'onion', price: 7, category: 'vegetables'},
     {name: 'fish', price: 42, category: 'meat'},
-]));*/
+]));
 
-
-function employeeBirthdays(employee, month) {
+/*function employeeBirthdays(employee, month) {
     let employeeMap = [...employee];
     let map = new Map();
     let today = new Date();
@@ -471,10 +471,12 @@ function employeeBirthdays(employee, month) {
             let ageConvertToDate = new Date(ageInSeconds);
             age = Math.abs(ageConvertToDate.getUTCFullYear() - 1970);
             dayOfBirth = element.birthday.slice(8);
-            if (map.has(setMonth) && setMonth.slice(0, 3).toString() === new Date(element.birthday).toDateString().slice(4, 7)) {
-                map.set(setMonth, map.get(setMonth).concat([{day: dayOfBirth, name: element.name, age: age}]));
-            } else if (setMonth.slice(0, 3).toString() === new Date(element.birthday).toDateString().slice(4, 7)) {
-                map.set(setMonth, [{day: dayOfBirth, name: element.name, age: age}]);
+            for (let i = 0; i <= month; i++) {
+                if (map.has(setMonth) && setMonth.slice(0, 3).toString() === new Date(element.birthday).toDateString().slice(4, 7)) {
+                    map.set(setMonth, map.get(setMonth).concat([{day: dayOfBirth, name: element.name, age: age}]));
+                } else if (setMonth.slice(0, 3).toString() === new Date(element.birthday).toDateString().slice(4, 7)) {
+                    map.set(setMonth, [{day: dayOfBirth, name: element.name, age: age}]);
+                }
             }
         }
         return console.log(map);
@@ -491,4 +493,4 @@ const employeeData = [
     {name: 'Boris Borisov', birthday: '1995-01-30'},
     {name: 'Stas Stasov', birthday: '1998-10-08'},
 ]
-console.log(employeeBirthdays(employeeData, 0))
+console.log(employeeBirthdays(employeeData, 1))*/
