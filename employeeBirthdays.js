@@ -1,15 +1,22 @@
+const fs = require('fs');
+const path = require('path');
 
-const employeeData = [
-    {birthday: '1989-07-28', name: 'Taras Tarasov'},
-    {birthday: '1985-08-22', name: 'Petro Petrov'},
-    {birthday: '1999-07-10', name: 'Vasyl Vasylov'},
-    {birthday: '1991-06-02', name: 'Vlad Vladov'},
-    {birthday: '1987-08-08', name: 'Denis Denisov'},
-    {birthday: '1984-09-17', name: 'Ignat Ignatov'},
-    {birthday: '1994-09-11', name: 'Alex Alexov'},
-    {birthday: '1995-12-30', name: 'Boris Borisov'},
-    {birthday: '1998-10-08', name: 'Stas Stasov'},
-]
+console.log(process.argv)
+let topicsPath = process.argv[2] || [1]
+let horizon = process.argv[3] || [1]
+
+fs.readFile(topicsPath, { encoding: 'utf8' }, (err, data) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    let employee = data
+        .split('\n')
+        .map(l => l.split(','))
+        .map(([birthday, name]) => ({birthday, name}))
+
+    employeeBirthdays(employee)
+});
 
 function employeeBirthdays(employee, month) {
     const employeeArray = [...employee].sort((a, b) => new Date(b.birthday) - new Date(a.birthday));
@@ -55,5 +62,5 @@ function employeeBirthdays(employee, month) {
         })
     }
     setBirthdayInMap();
+    console.log(employee)
 }
-employeeBirthdays(employeeData, 0)
