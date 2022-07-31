@@ -3,19 +3,18 @@ const path = require('path');
 
 console.log(process.argv)
 let topicsPath = process.argv[2] || [1]
-let horizon = process.argv[3] || [1]
+let month = process.argv[3] || [1]
 
 fs.readFile(topicsPath, { encoding: 'utf8' }, (err, data) => {
     if (err) {
         console.error(err);
         return;
     }
-    let employee = data
+    let employee = data.replace(/(\r)/gm, "")
         .split('\n')
         .map(l => l.split(','))
         .map(([birthday, name]) => ({birthday, name}))
-
-    employeeBirthdays(employee)
+    employeeBirthdays(employee,month)
 });
 
 function employeeBirthdays(employee, month) {
@@ -62,5 +61,5 @@ function employeeBirthdays(employee, month) {
         })
     }
     setBirthdayInMap();
-    console.log(employee)
 }
+
