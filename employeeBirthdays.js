@@ -2,12 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 console.log(process.argv)
-let topicsPath = process.argv[2] || [1]
+let employees = process.argv[2] || [1]
 let month = process.argv[3] || [1]
 
-fs.readFile(topicsPath, { encoding: 'utf8' }, (err, data) => {
+fs.readFile(employees, { encoding: 'utf8' }, (err, data) => {
     if (err) {
-        console.error(err);
+        console.error(err.message);
         return;
     }
     let employee = data.replace(/(\r)/gm, "")
