@@ -31,9 +31,15 @@ function sortedPriceList(array) {
         items.map(item => {
             sum += item.price
         })
-        checkListModified.set(category, checkList.get(category).concat({total_price: sum}))
+        checkListModified.set(category + `: total price = ${sum}`, checkList.get(category))
     }
 
-    checkListModified.forEach((value, key) => console.log(key + '\n', ...value));
-    return console.log('full price: ' + fullPrice);
+    checkListModified.forEach((value, key) => {
+        console.log(key)
+        value.forEach((val) => {
+
+            console.log(val.name, val.price)
+        })
+    });
+    return console.log('\nfull price: ' + fullPrice);
 }
