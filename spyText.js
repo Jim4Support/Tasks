@@ -1,7 +1,8 @@
-let fs = require('fs');
+let fs = require('fs');//
 let data = process.argv[2];
 
-let writeStream = fs.createWriteStream("file.txt");
+let writeStream = fs.createWriteStream("file.txt");//
+
 writeStream.write(data.toUpperCase().replaceAll('.', ' ').split('').map(text => text.
 charCodeAt(0) - 64).join(' '), (err) => {
     if (err) {
@@ -12,23 +13,20 @@ charCodeAt(0) - 64).join(' '), (err) => {
 });
 writeStream.end();
 
-/*
-const {Transform} = require('stream')
+/*const {Transform} = require('stream')
+const spyText = spyTextTransform();
 
-class spyText extends Transform {
-    constructor(letter) {
-        super();
-        this.spyLetter = letter;
+process.stdin.pipe(spyText).pipe(writeStream);
+
+function spyTextTransform() {
+    return new Transform({
+        transform(chunk, encoding, callback) {
+            let text = textTransform(chunk.toString());
+            callback(null, text);
+        }
+    });
+    function textTransform(input) {
+        return input.replaceAll('.', ' ').split('').map(text => text.
+        charCodeAt(0) - 64).join(' ')
     }
-    _transform(chunk, encoding, callback) {
-        let chTransform = chunk.toString().replace(/[a-z][A-Z][/d]/g, this.spyLetter);
-        this.push(chTransform);
-        callback();
-    }
-    _flush(callback) {
-        this.push('....')
-        callback();
-    }
-}
-let stream = new spyText('x');
-process.stdin.pipe(stream).pipe(process.stdout);*/
+}*/
