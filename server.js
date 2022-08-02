@@ -6,10 +6,10 @@ const server = net.createServer(socket => {
     let nick = null;
     socket.write('Server connected:\r\n');
     messagesData.forEach(element => {
-        socket.write(`${element.nick}: ${element.message}\n`);
+        socket.write(`\x1b[33m${element.nick}: \x1b[0m${element.message}\n`);
     });
     socket.write('What is your name?: ');
-    let clientInfo = `${socket.remoteAddress}`;
+    let clientInfo = socket.remoteAddress;
     console.log(`+ ${clientInfo} - connected`);
     socket.on('close', () => {
         let index = clients.indexOf((socket));
@@ -23,10 +23,11 @@ const server = net.createServer(socket => {
         if (nick === null) {
             nick = message;
         } else {
-            messagesData.push({nick, message})
+            messagesData.push({nick, message});
             clients.forEach(client => {
                 if (client !== socket) {
-                    client.write(`${nick}: ${message}\n`);
+                    client.write(`\x1b[33m${nick}: \x1b[0m${message}\n`);
+                    socket.write(`\x1b[32mYou: \x1b[0m${message}\n`);
                 }
             });
         }
