@@ -1,35 +1,36 @@
 const net = require('net');
 const clients = [];
-let nick = null;
-
-
-
+const messagesData = [];
 
 const server = net.createServer(socket => {
+    let nick = null;
     socket.write('Server connected:\r\n');
-
+    messagesData.forEach(element => {
+        socket.write(`${element.nick}: ${element.message}\n`);
+    });
+    socket.write('What is your name?: ');
     let clientInfo = `${socket.remoteAddress}`;
     console.log(`+ ${clientInfo} - connected`);
-
-
     socket.on('close', () => {
         let index = clients.indexOf((socket));
         clients.splice(index, 1);
-        console.log(`- ${clientInfo} - closed`)
+        console.log(`- ${clientInfo} - closed`);
     });
-clients.push(socket)
+
+    clients.push(socket);
     socket.on('data', message => {
-        clients.forEach(client => {
-            if (nick === null) {
-                client.write(message);
-                nick = message;
-            } else {
-                client.write(`${clients['nick']} `, message);
-                clients.push(nick,message);
-                console.log(clients);
-            }
-        })
-    })
+        message = message.toString().replace('\n', '');
+        if (nick === null) {
+            nick = message;
+        } else {
+            messagesData.push({nick, message})
+            clients.forEach(client => {
+                if (client !== socket) {
+                    client.write(`${nick}: ${message}\n`);
+                }
+            });
+        }
+    });
     socket.pipe(process.stdout);
 });
 
