@@ -9,7 +9,7 @@ const server = net.createServer(socket => {
         socket.write(`\x1b[33m${element.nick}: \x1b[0m${element.message}\n`);
     });
     socket.write('What is your name?: ');
-    let clientInfo = socket.remoteAddress;
+    let clientInfo = socket.remotePort;
     console.log(`+ ${clientInfo} - connected`);
     socket.on('close', () => {
         let index = clients.indexOf((socket));
