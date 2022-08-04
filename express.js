@@ -21,15 +21,15 @@ const createTask = data => {
         done: false,
     }
 }
-app.get('/tasks', (req, res) => res.json(tasks))
+app.get('/tasks', (req, res) => res.json(tasks)) //curl localhost:3000/tasks
 
-app.post('/tasks', (req, res) => {
+app.post('/tasks', (req, res) => { //curl localhost:3000/tasks -d '{ "name": "Generate ID" }' -H "Content-Type: application/json"
     let task = createTask(req.body);
     tasks.push(task);
     res.json(task);
 });
 
-app.patch('/tasks/:id', (req, res) => {
+app.patch('/tasks/:id', (req, res) => { //curl -X PATCH localhost:3000/tasks/3 -d '{"name": "Changed" }' -H "Content-Type: application/json"
     const taskId = parseInt(req.params.id);
     const task = tasks.find(t => t.id === taskId);
     if (task) {
