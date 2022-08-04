@@ -1,32 +1,20 @@
-let fs = require('fs');//
-let data = process.argv[2];
+let fs = require('fs');
 
-let writeStream = fs.createWriteStream("file.txt");//
+let writeStream = fs.createWriteStream("file.txt");
 
-writeStream.write(data.toUpperCase().replaceAll('.', ' ').split('').map(text => text.
-charCodeAt(0) - 64).join(' '), (err) => {
-    if (err) {
-        console.log(err.message)
-    } else {
-        console.log('data written')
-    }
-});
-writeStream.end();
+const {Transform} = require('stream') // Створюємо константу класу Трансформ
+const spyText = spyTextTransform(); // Змінна для функції трансформування
 
-/*const {Transform} = require('stream')
-const spyText = spyTextTransform();
-
-process.stdin.pipe(spyText).pipe(writeStream);
+process.stdin.pipe(spyText).pipe(writeStream); // через пайпи передаємо нашу змінну з функцією
 
 function spyTextTransform() {
     return new Transform({
-        transform(chunk, encoding, callback) {
-            let text = textTransform(chunk.toString());
+        transform(chunk, encoding, callback) { // метод для чанка та колбеку
+            let text = chunk.toString()
+                .replaceAll('.', ' ')
+                .split('')
+                .map(text => text.charCodeAt(0)).join(' '); // if
             callback(null, text);
         }
     });
-    function textTransform(input) {
-        return input.replaceAll('.', ' ').split('').map(text => text.
-        charCodeAt(0) - 64).join(' ')
-    }
-}*/
+}
