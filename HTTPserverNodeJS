@@ -1,0 +1,40 @@
+const http = require('http');
+const server = http.createServer((req, res) => {
+    if(req.url === '/headers') {
+        const arr = [{subject: 'box'}, {subject: 'table'}, {subject: 'cat'}, {subject: 'catInBox?'}];
+        res.writeHead(200, {'Content-Type': 'app/json'});
+        res.end(JSON.stringify(arr));
+    } else if (req.url.includes('/plural')) {
+        function plural(count, one, few, many) {
+            if(count%10 === 1 && count%100 !== 11){
+                return((count + " " + one + '\n'));
+            } else if(count === 0 || count <= 20 && count >= 5 || count%10 === 0 || count%10 <= 19 && count%10 >= 5 || count%100 == 20){
+                return((count + " " + many + '\n'));
+            } else {
+                return((count + " " + few + '\n'));
+            }
+        }
+            let number = req.url.slice(req.url.indexOf('?'), req.url.indexOf('&'));
+            c = parseInt(number.slice(8));
+            let sli = req.url.slice(req.url.indexOf('&'));
+            let forms = sli.slice(7).split(',');
+            res.writeHead(200, {'Content-Type': 'text/plain'});
+            res.end(plural(c, forms[0], forms[1], forms[2]));
+    } else {
+        function uniqueWordCount(str) { 
+            let set = new Set();
+            let words = str.split (' ');
+        
+            for(let i = 1; i < words.length; i++){
+              set.add(words[i]);
+            }
+            return set.size;
+          }
+          console.log(uniqueWordCount('Made in China, by made in out from'));
+    }
+        });
+
+const port = 3000;
+server.listen(port, () => {
+    console.log(`Server localhost: ${port}`);
+});
