@@ -22,7 +22,7 @@ const http = require('http');
 const server = http.createServer((req, res) => { // створюємо серв
     if(req.url === '/headers') { // curl localhost:3000/headers
         const arr = [{subject: 'box'}, {subject: 'table'}, {subject: 'cat'}, {subject: 'catInBox?'}];
-        res.writeHead(200, {'Content-Type' : 'application/json'});
+        res.writeHead(200, {'Content-Type' : 'application/json'}); // тип: надсилає вказаний заголовок відповіді на запит
         res.end(JSON.stringify(arr));
     } else if (req.url.includes('/plural')) { // curl localhost:3000/plural?number=2\&forms=word,words,words
         const numSlice = req.url.slice(req.url.indexOf('?'), req.url.indexOf('&'));

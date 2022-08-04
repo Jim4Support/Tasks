@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-function logRequest({method, url}, res, next) {
+function logRequest({method, url}, res, next) { // middleware проміжний код, який виконується до того, як почне виконувати основний код
     console.log(`[${new Date().toISOString()}] ${method} ${url}`);
     next();
 }
