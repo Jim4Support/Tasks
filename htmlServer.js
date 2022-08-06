@@ -6,7 +6,7 @@ function wordsCounter(text) { //функція обрахунку слів, ви
     }
     let textFrequency = Object.entries(obj).reduce((acc, curr) => acc[1] > curr[1] ? acc : curr)[0];
     let textUnique = Object.values(obj).length;
-    return `${JSON.stringify(obj)}\nThe most frequent word: ${textFrequency}\nUnique words: ${textUnique}`;
+    return {object: JSON.stringify(obj), unique: textUnique.toString(), frequency: textFrequency.toString()};
 }
 
 function plural(count, one, few, many) { //функція плюралізації слів
@@ -32,18 +32,17 @@ const server = http.createServer((req, res) => { // створюємо серв
         res.writeHead(201, {'Content-Type' : 'application/json'});
         res.end(plural(number, forms[0], forms[1], forms[2]));
     } else if (req.url === '/frequency'){ // curl localhost:3000/frequency --data-raw "Little red fox jumps over logs. Fox is red"
-        if (req.method === 'POST') {
             const data = [];
             req.on('data', chunk => data.push(chunk));
             req.on('end', () => {
-                const freq = wordsCounter(data.toString());
-                res.writeHead(202, {'Content-Type': 'application/json'});
-                res.end(freq);
+                const output = wordsCounter(data.toString());
+                res.writeHead(201, {
+                    'Content-Type': 'application/json',
+                    'Unique-words': output.unique,
+                    'The-most-frequent-word': output.frequency
+                });
+                res.end(output.object);
             });
-        } else {
-            res.writeHead(404, 'Not found');
-            res.end();
-        }
     } else {
         res.writeHead(404, 'Not found');
         res.end();

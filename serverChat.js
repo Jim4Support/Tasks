@@ -2,7 +2,7 @@ const net = require('net');
 const clients = [];
 const messagesData = [];
 
-const server = net.createServer(socket => {
+const serverChat = net.createServer(socket => {
     let nick = null;
     socket.write('Server connected:\r\n');
     messagesData.forEach(element => {
@@ -35,8 +35,8 @@ const server = net.createServer(socket => {
     socket.pipe(process.stdout);
 });
 
-server.listen(1337, '127.0.0.1');
+serverChat.listen(1337, '127.0.0.1');
 
-server.on('listening', () => {
-    console.log('Listening on ', server.address());
+serverChat.on('listening', () => {
+    console.log('Listening on ', serverChat.address());
 });

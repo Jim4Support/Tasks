@@ -2,7 +2,7 @@ const net = require('net');
 
 const client = new net.Socket();
 
-// node server.js -i
+// node serverChat.js -i
 const interactive = process.argv[2] === '-i'
 
 client.connect(1337, '127.0.0.1', () => {
