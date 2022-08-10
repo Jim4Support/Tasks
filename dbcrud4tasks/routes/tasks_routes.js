@@ -35,8 +35,8 @@ function update(req, res) {
 }
 function put(req, res) {
     const id = req.params.id;
-    const done = req.body.done || false;
-    const title = req.body.title || 'text';
+    const done = req.body.done;
+    const title = req.body.title;
     const due_date = req.body.dataset;
     putTask(id, done, title, due_date).then(t => res.json(t))
         .catch(() => res.sendStatus(500))
