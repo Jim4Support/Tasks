@@ -1,4 +1,4 @@
-import {createTask, getTasks, getSingleTask, updateTask, putTask, deleteTask} from "../controllers/tasks_controllers.js";
+import {createTask, getTasks, getSingleTask, updateTask, putTask, deleteTask} from "../models/tasks_model.js";
 import Router from 'express';
 import express from 'express';
 export const router = new Router();
