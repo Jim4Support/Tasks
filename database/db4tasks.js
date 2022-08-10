@@ -1,5 +1,5 @@
 const express = require('express');
-const client = require('./data/dbclient');
+const client = require('./dbclient');
 const app = express();
 
 function logRequest({method, url}, res, next) {
@@ -20,7 +20,7 @@ const createTask = data => {
     }
 }
 app.get('/tasks', (req, res) => {
-    client.query('SELECT * FROM todolist', (error, result) => {//curl localhost:3000/tasks
+    client.query('SELECT * FROM items', (error, result) => {//curl localhost:3000/tasks
         if (error) {
             throw error;
         } else {
@@ -30,7 +30,7 @@ app.get('/tasks', (req, res) => {
 });
     
 app.post('/tasks', (req, res) => { //curl localhost:3000/tasks -d '{ "name": "Generate ID" }' -H "Content-Type: application/json"
-    client.query('INSERT INTO todolist SET ?', id, (error, result) => {
+    client.query('SELECT * FROM items', id, (error, result) => {
         if (error) {
             throw error;
         } else {
@@ -53,4 +53,4 @@ app.patch('/tasks/:id', (req, res) => { //curl -X PATCH localhost:3000/tasks/3 -
     }
 });
 
-module.exports = app;
+export default app;
