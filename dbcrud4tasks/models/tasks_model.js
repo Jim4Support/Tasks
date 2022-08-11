@@ -1,4 +1,9 @@
-import {pool} from '../db.js';
+import {pool} from '../tasks_db.js';
+
+export function getTodayTasks() { //('SELECT COUNT(done),title FROM items WHERE done=false GROUP BY title')
+    return pool.query('SELECT COUNT(id) FROM items WHERE due_date BETWEEN CURRENT_DATE AND CURRENT_DATE')
+        .then(res => res.rows[0])
+}
 
 export function getTasks() {
     return pool.query('SELECT * FROM items')
