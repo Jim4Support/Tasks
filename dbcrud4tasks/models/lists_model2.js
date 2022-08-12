@@ -1,31 +1,24 @@
 import {pool} from '../tasks_db.js';
 
-export function getLists() {
-    return pool.query('SELECT * FROM lists')
+export function getTodayCount() {
+    const today = new Date();
+    return pool.query('SELECT COUNT(title) FROM items WHERE due_date BETWEEN $1 AND $2', [today, today])
+        .then(res => res.rows[0])
+}
+export function notDoneTasks() {
+    return pool.query('SELECT l.name, COUNT(t.done = false OR null) AS undone FROM items AS t RIGHT JOIN list AS l ON l.id = t.list_id GROUP BY l.name')
         .then(res => res.rows)
 }
-
-export function getSingleList(id) {
-    return pool.query('SELECT * FROM lists WHERE id = $1', [id])
-        .then(res => res.rows[0])
+export function getTodayTasks() {
+    const today = new Date();
+    return pool.query('SELECT name AS lists, title AS task FROM items AS i LEFT JOIN list l on l.id = i.list_id WHERE i.due_date BETWEEN $1 AND $2', [today, today])
+        .then(res => res.rows)
 }
-
-export function createLists(done, title, due_date) {
-    return pool.query('INSERT INTO public.lists(done, title, due_date) VALUES ($1, $2, $3) RETURNING id, done, title, due_date', [done, title, due_date])
-        .then(res => res.rows[0])
+export function listUndoneTasks(listId) {
+    return pool.query('SELECT * FROM items WHERE list_id = $1 AND done = false',[listId])
+        .then(res => res.rows)
 }
-
-export function updateLists(id, done, title, due_date) {
-    return pool.query('UPDATE public.lists SET done = $2, title = $3, due_date = $4 WHERE id = $1 RETURNING id, done, title, due_date', [id, done, title, due_date])
-        .then(res => res.rows[0])
-}
-
-export function putLists(id, done, title, due_date) {
-    return pool.query('UPDATE public.lists SET done = $2, title = $3, due_date = $4 WHERE id = $1 RETURNING id, done, title, due_date', [id, done, title, due_date])
-        .then(res => res.rows[0])
-}
-
-export function deleteLists(id) {
-    return pool.query('DELETE FROM public.lists WHERE id = $1 RETURNING id, done, title, due_date', [id])
-        .then(res => res.rows[0])
+export function allTasks(listId) {
+    return pool.query('SELECT * FROM items WHERE list_id = $1',[listId])
+        .then(res => res.rows)
 }

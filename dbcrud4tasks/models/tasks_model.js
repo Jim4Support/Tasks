@@ -1,17 +1,5 @@
 import {pool} from '../tasks_db.js';
 
-export function getTodayTasks() { //('SELECT COUNT(done),title FROM items WHERE done=false GROUP BY title')
-    return pool.query('SELECT COUNT(id) FROM items WHERE due_date BETWEEN CURRENT_DATE AND CURRENT_DATE')
-        .then(res => res.rows[0])
-}
-/*export function asdfqg() {
-    return pool
-        .query(`SELECT l.name, COUNT(t.done = false OR null) AS "Not Completed Tasks Count"
-                FROM tasks AS t RIGHT JOIN lists AS l ON l.id = t.list_id
-                GROUP BY l.name`)
-        .then(res => res.rows)
-}*/
-
 export function getTasks() {
     return pool.query('SELECT * FROM items')
         .then(res => res.rows)
