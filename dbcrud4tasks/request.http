@@ -1,0 +1,62 @@
+### GET request with a header
+GET http://localhost:4000/tasks
+Accept: application/json
+Content-Type: application/json
+
+### POST
+# curl localhost:4000/tasks
+POST localhost:4000/tasks
+Content-Type: application/json
+
+{
+  "title": "created task",
+  "done": false,
+  "due_date": "2022-10-12",
+  "description": "some desc",
+  "list_id": 1
+}
+
+### PARTIAL UPDATE
+# curl -X PATCH localhost:4000/tasks
+PATCH localhost:4000/tasks/15
+Content-Type: application/json
+
+{
+  "title": "Changed",
+  "done": true,
+  "due_date": "2022-08-13",
+  "list_id": 2,
+  "description": "changed"
+}
+
+### FULL UPDATE
+# curl -X PUT localhost:4000/tasks/14
+PUT localhost:4000/tasks/16
+Content-Type: application/json
+
+{
+  "title": "put changed",
+  "due_date": "2022-08-14",
+  "list_id": 1,
+  "description": "already put"
+}
+
+### DELETE
+# curl -X DELETE localhost:4000/tasks/14
+DELETE localhost:4000/tasks/15
+
+### COUNT TODAY TASKS & LIST NAME
+# curl localhost:4000/dashboard
+GET localhost:4000/dashboard
+
+### TASKS ON TODAY
+# curl localhost:4000/collections/today
+GET localhost:4000/collections/today
+
+### QUERY REQUEST ONLY ALL=TRUE
+# curl localhost:4000/lists/3/tasks
+# curl localhost:4000/lists/3/tasks?all=true
+GET localhost:4000/lists/3/tasks
+
+###
+
