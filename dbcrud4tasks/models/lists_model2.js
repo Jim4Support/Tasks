@@ -14,11 +14,7 @@ export function getTodayTasks() {
     return pool.query('SELECT name AS lists, title AS task FROM items AS i LEFT JOIN list l on l.id = i.list_id WHERE i.due_date BETWEEN $1 AND $2', [today, today])
         .then(res => res.rows)
 }
-export function listUndoneTasks(listId) {
-    return pool.query('SELECT * FROM items WHERE list_id = $1 AND done = false',[listId])
-        .then(res => res.rows)
-}
-export function allTasks(listId) {
-    return pool.query('SELECT * FROM items WHERE list_id = $1',[listId])
+export function listUndoneTasks(listId, all) {
+    return pool.query('SELECT * FROM items WHERE list_id = $1 AND done = false OR done = $2',[listId, all])
         .then(res => res.rows)
 }

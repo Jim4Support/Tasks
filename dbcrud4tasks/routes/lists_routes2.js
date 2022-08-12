@@ -1,4 +1,4 @@
-import {getTodayCount, getTodayTasks, notDoneTasks, listUndoneTasks, allTasks} from "../models/lists_model2.js";
+import {getTodayCount, getTodayTasks, notDoneTasks, listUndoneTasks} from "../models/lists_model2.js";
 import Router from 'express';
 export const routerList = new Router();
 
@@ -15,14 +15,9 @@ function todayTasks(req, res, next) { // curl localhost:4000/collections/today
     getTodayTasks().then(t => res.json(t))
         .catch(next)
 }
-function undoneTasks(req, res, next) { // curl localhost:4000/lists/:listId/tasks
-    const all = req.query.all || false;
+function undoneTasks(req, res, next) { // curl localhost:4000/lists/3/tasks
+    const all = req.query.all || null;
     const listId = req.params.listId;
-    if (all) {
-        allTasks(listId).then(t => res.json(t))
+        listUndoneTasks(listId, all).then(t => res.json(t))
             .catch(next)
-    } else {
-        listUndoneTasks(listId).then(t => res.json(t))
-            .catch(next)
-    }
 }
