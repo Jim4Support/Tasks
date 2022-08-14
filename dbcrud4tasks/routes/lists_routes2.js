@@ -1,4 +1,3 @@
-// SQL
 import {getTodayCount, getTodayTasks, notDoneTasks, listUndoneTasks} from "../models/lists_model2.js";
 import Router from 'express';
 export const routerList = new Router();
@@ -9,7 +8,12 @@ routerList.get('/lists/:listId/tasks', undoneTasks);
 
 function getToday(req, res, next) { // curl localhost:4000/dashboard
     Promise.all([getTodayCount(), notDoneTasks()])
-        .then(t => res.json({'Today count': t[0], 'Name list': t[1]}))
+        .then(t => res.json({'Today count': +t[0][0].count, 'Name list': t[1].map((el)=>{
+            return {name: el.name,
+                id: el.id,
+                undone: parseInt(el.undone)
+            }
+            })}))
         .catch(next)
 }
 function todayTasks(req, res, next) { // curl localhost:4000/collections/today

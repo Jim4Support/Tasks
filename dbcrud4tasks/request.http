@@ -6,24 +6,26 @@ Content-Type: application/json
 ### POST
 # curl localhost:4000/tasks
 POST localhost:4000/tasks
+Accept: application/json
 Content-Type: application/json
 
 {
   "title": "created task",
-  "done": false,
-  "due_date": "2022-10-12",
+  "done": true,
+  "due_date": "2022-10-14",
   "description": "some desc",
   "list_id": 1
 }
 
 ### PARTIAL UPDATE
 # curl -X PATCH localhost:4000/tasks
-PATCH localhost:4000/tasks/15
+PATCH localhost:4000/tasks/17
+Accept: application/json
 Content-Type: application/json
 
 {
   "title": "Changed",
-  "done": true,
+  "done": false,
   "due_date": "2022-08-13",
   "list_id": 2,
   "description": "changed"
@@ -31,32 +33,40 @@ Content-Type: application/json
 
 ### FULL UPDATE
 # curl -X PUT localhost:4000/tasks/14
-PUT localhost:4000/tasks/16
+PUT localhost:4000/tasks/17
+Accept: application/json
 Content-Type: application/json
 
 {
-  "title": "put changed",
+  "title": "put lolol",
   "due_date": "2022-08-14",
-  "list_id": 1,
   "description": "already put"
 }
 
 ### DELETE
 # curl -X DELETE localhost:4000/tasks/14
-DELETE localhost:4000/tasks/15
+DELETE localhost:4000/tasks/19
+Accept: application/json
+Content-Type: application/json
 
 ### COUNT TODAY TASKS & LIST NAME
 # curl localhost:4000/dashboard
 GET localhost:4000/dashboard
+Accept: application/json
+Content-Type: application/json
 
 ### TASKS ON TODAY
 # curl localhost:4000/collections/today
 GET localhost:4000/collections/today
+Accept: application/json
+Content-Type: application/json
 
 ### QUERY REQUEST ONLY ALL=TRUE
 # curl localhost:4000/lists/3/tasks
 # curl localhost:4000/lists/3/tasks?all=true
 GET localhost:4000/lists/3/tasks
+Accept: application/json
+Content-Type: application/json
 
 ###
 
