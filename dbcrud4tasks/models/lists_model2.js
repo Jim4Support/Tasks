@@ -1,4 +1,4 @@
-import {pool} from '../tasks_db.js';
+import {pool} from '../tasks_db.js'; // SQL
 
 export function getTodayCount() {
     const today = new Date();

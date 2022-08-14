@@ -1,3 +1,4 @@
+// SQL
 import {pool} from '../tasks_db.js';
 
 export function getTasks() {
