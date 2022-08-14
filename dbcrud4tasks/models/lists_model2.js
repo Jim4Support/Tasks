@@ -15,6 +15,6 @@ export function getTodayTasks() {
         .then(res => res.rows)
 }
 export function listUndoneTasks(listId, all) {
-    return pool.query('SELECT * FROM items WHERE list_id = $1 AND done = false OR done = $2',[listId, all])
+    return pool.query('SELECT * FROM items WHERE list_id = $1 AND done = false OR list_id = $1 AND done = $2',[listId, all])
         .then(res => res.rows)
 }
