@@ -6,12 +6,12 @@ export function getTodayCount() {
         .then(res => res.rows[0])
 }
 export function notDoneTasks() {
-    return pool.query('SELECT l.name, COUNT(t.done = false OR null) AS undone FROM items AS t RIGHT JOIN list AS l ON l.id = t.list_id GROUP BY l.name')
+    return pool.query('SELECT l.name AS name, i.list_id AS id, COUNT(i.done = false OR null) AS undone FROM items AS i RIGHT JOIN list AS l ON l.id = i.list_id GROUP BY l.name, i.list_id')
         .then(res => res.rows)
 }
 export function getTodayTasks() {
     const today = new Date();
-    return pool.query('SELECT name AS lists, title AS task FROM items AS i LEFT JOIN list l on l.id = i.list_id WHERE i.due_date BETWEEN $1 AND $2', [today, today])
+    return pool.query('SELECT list.name AS lists, list.id AS list_id, done AS done, items.id AS items_id, due_date AS due_date, title FROM items LEFT JOIN list on list.id = items.list_id WHERE items.due_date BETWEEN $1 AND $2', [today, today])
         .then(res => res.rows)
 }
 export function listUndoneTasks(listId, all) {

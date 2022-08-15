@@ -9,11 +9,24 @@ routerList.get('/lists/:listId/tasks', undoneTasks);
 
 function getToday(req, res, next) { // curl localhost:4000/dashboard
     Promise.all([getTodayCount(), notDoneTasks()])
-        .then(t => res.json({'Today count': t[0], 'Name list': t[1]}))
+        .then(t => res.json({'Today count': +t[0].count, 'Name list': t[1].map((el)=>{
+                return {name: el.name,
+                    id: el.id,
+                    undone: parseInt(el.undone)
+                }
+            })}))
         .catch(next)
 }
 function todayTasks(req, res, next) { // curl localhost:4000/collections/today
-    getTodayTasks().then(t => res.json(t))
+    getTodayTasks().then(t => res.json(t.map(el => {
+        return {
+            title: el.title,
+            item_id: el.items_id,
+            done: el.done,
+            date: el.due_date,
+            list: {list_name: el.lists, list_id: el.list_id}
+        }
+    })))
         .catch(next)
 }
 function undoneTasks(req, res, next) { // curl localhost:4000/lists/3/tasks
