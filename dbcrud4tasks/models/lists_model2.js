@@ -22,8 +22,8 @@ export function getTodayTasks() {
         .leftJoin('list','list.id', 'items.list_id')
 }
 export function listUndoneTasks(listId, all) {
-    return knx.select('*')
+    const undone = knx.select('*')
         .from('items')
         .where('list_id', listId).andWhere('done', false)
-        .orWhere('list_id', listId).andWhere('done', all)
+    return undone.orWhere('list_id', listId).andWhere('done', all)
 }
