@@ -1,0 +1,67 @@
+body{
+    background: #624c4c;
+}
+
+#sp{
+    font-style: oblique;
+    color: rgba(238, 255, 0, 0.62);
+}
+
+span{
+    color: #290046;
+}
+
+ul{
+    font-style: oblique;
+    font-size: 20px;
+}
+
+h3{
+    color: rgb(41, 0, 70);
+}
+
+#info{
+    background-color: #004631;
+    padding: 20px;
+    margin: 10px;
+    border-style: solid;
+    grid-gap: 20px;
+    grid-auto-columns: auto;
+    display: grid;
+    grid-template-areas:
+            "a b";
+    grid-area: a;
+}
+
+table{
+    text-align: center;
+}
+
+#text{
+    border-radius: 5px;
+    background-color: #4d1a00;
+    padding: 10px;
+    grid-area: b;
+    font-size: 20px;
+}
+
+th, td {
+    border-style: solid;
+    padding: 15px;
+}
+
+img{
+    align-self: center;
+    width: 100px;
+    border-radius: 5px;
+}
+
+#about{
+    font: 30px "Segoe UI Black";
+    text-align: center;
+    color: black;
+}
+
+footer{
+    font: 16px tahoma, verdana, sans-serif;
+}
