@@ -16,7 +16,7 @@ export function notDoneTasks() {
 }
 export function getTodayTasks() {
     const today = new Date();
-    return knx.select('items.title as item', 'items.id as item_id', 'items.done', 'items.due_date', 'list.name as list', 'list.id as list_id')
+    return knx.select('items.title as title', 'items.id as item_id', 'items.done', 'items.due_date', 'list.name as list', 'list.id as list_id')
         .whereBetween('items.due_date', [today, today])
         .from('items')
         .leftJoin('list','list.id', 'items.list_id')

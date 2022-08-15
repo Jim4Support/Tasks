@@ -1,11 +1,15 @@
 ### GET request with a header
+
 GET http://localhost:4000/tasks
+
 Accept: application/json
 Content-Type: application/json
 
 ### POST
 # curl localhost:4000/tasks
+
 POST localhost:4000/tasks
+
 Accept: application/json
 Content-Type: application/json
 
@@ -19,7 +23,9 @@ Content-Type: application/json
 
 ### PARTIAL UPDATE
 # curl -X PATCH localhost:4000/tasks
+
 PATCH localhost:4000/tasks/17
+
 Accept: application/json
 Content-Type: application/json
 
@@ -33,38 +39,48 @@ Content-Type: application/json
 
 ### FULL UPDATE
 # curl -X PUT localhost:4000/tasks/14
+
 PUT localhost:4000/tasks/17
+
 Accept: application/json
 Content-Type: application/json
 
 {
-  "title": "put lolol",
+  "title": "put change",
   "due_date": "2022-08-14",
   "description": "already put"
 }
 
 ### DELETE
 # curl -X DELETE localhost:4000/tasks/14
+
 DELETE localhost:4000/tasks/19
+
 Accept: application/json
 Content-Type: application/json
 
 ### COUNT TODAY TASKS & LIST NAME
 # curl localhost:4000/dashboard
+
 GET localhost:4000/dashboard
+
 Accept: application/json
 Content-Type: application/json
 
 ### TASKS ON TODAY
 # curl localhost:4000/collections/today
+
 GET localhost:4000/collections/today
+
 Accept: application/json
 Content-Type: application/json
 
 ### QUERY REQUEST ONLY ALL=TRUE
 # curl localhost:4000/lists/3/tasks
 # curl localhost:4000/lists/3/tasks?all=true
-GET localhost:4000/lists/3/tasks
+
+GET localhost:4000/lists/2/tasks
+
 Accept: application/json
 Content-Type: application/json
 

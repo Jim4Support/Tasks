@@ -17,7 +17,15 @@ function getToday(req, res, next) { // curl localhost:4000/dashboard
         .catch(next)
 }
 function todayTasks(req, res, next) { // curl localhost:4000/collections/today
-    getTodayTasks().then(t => res.json(t))
+    getTodayTasks().then(t => res.json(t.map(el => {
+        return {
+            title: el.title,
+            item_id: el.item_id,
+            done: el.done,
+            date: el.due_date,
+            list: {list_name: el.list, list_id: el.list_id}
+        }
+    })))
         .catch(next)
 }
 function undoneTasks(req, res, next) { // curl localhost:4000/lists/3/tasks
