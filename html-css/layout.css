@@ -1,0 +1,41 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+.container{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.item{
+    width: 100%;
+}
+
+.header{
+    text-align: center;
+    position: fixed;
+    background-color: #0A3A7D;
+    align-self: start;
+}
+.sidebar{
+    max-width: 50pt;
+    background-color: #7d0000;
+}
+
+
+.main{
+    text-align: center;
+    background-color: #7d7d00;
+}
+
+.footer{
+    text-align: center;
+    position: fixed;
+    align-self: end;
+    background-color: rgba(0, 100, 0, 0.84);
+}
