@@ -1,0 +1,83 @@
+body{
+    height: auto;
+    width: 100%;
+    border: 2px dashed;
+    margin-top: 40px;
+    background: rgb(170, 160, 156);
+}
+
+#top{
+    display: grid;
+    gap: 20px;
+    grid-template-areas: "a b";
+    padding: 10px 10px;
+    text-align: left;
+    grid-area: a;
+}
+
+#top-content{
+    padding: auto;
+    font-size: 20px;
+    grid-area: b;
+    text-align: left;
+}
+
+.head{
+    top: 0;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    width: 100%;
+    font-size: 15px;
+    background-color: rgb(255, 255, 255);
+}
+
+.foot{
+    padding: 5px;
+    position: -ms-page;
+    background-color: rgb(255, 255, 255);
+}
+
+img{
+    width: 150px;
+    float: left;
+    border-radius: 100px;
+}
+
+.content{
+    position: static;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-areas: "c d";
+    grid-area: d;
+    padding: 10px 10px;
+}
+
+.content table{
+    border: 1px solid;
+    text-align: center;
+}
+
+span{
+    text-align: left;
+    font-size: 20px;
+    margin: 5px 5px;
+    grid-area: c;
+}
+
+#copyright{
+    font-style: italic;
+    position: absolute;
+}
+
+#text{
+    font-style: italic;
+    text-align: right;
+}
+
+a{
+    color: rgb(1, 85, 85);
+}
+a:hover{
+    color: rgb(104, 1, 1);
+}
