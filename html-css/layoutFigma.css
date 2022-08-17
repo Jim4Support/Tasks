@@ -1,0 +1,86 @@
+body{
+    left: 0;
+    top: 0;
+    width: 375px;
+    height: 1948px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+    position: relative;
+    font-family: "Franklin Gothic Medium", cursive;
+    font-style: normal;
+    color: white;
+}
+
+.header{
+    position: absolute;
+    color: white;
+    top: 29px;
+    left: 24px;
+}
+
+#portfolio{
+    position: absolute;
+    width: 116px;
+    height: 29px;
+    font-size: 24px;
+    line-height: 29px;
+    top: 36px;
+    left: 129px;
+}
+
+#image{
+    position: absolute;
+    background-image: url("https://www.investporto.pt/fotos/noticias/porto_historico.4c592b39.fill-720x478-c50.format-png_5130476235fbd17ed5270c.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 373px;
+    height: 275px;
+}
+
+#h2h{
+    width: 181px;
+    height: 16px;
+    left: 96px;
+    top: 152px;
+    position: absolute;
+    font-size: 20px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+}
+
+h3, h5{
+    position: absolute;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.layout{
+    background: #C66C4966 40%;
+    position: absolute;
+}
+
+.main{
+    color: #333333;
+    position: absolute;
+    width: 312px;
+    height: 212px;
+    left: 34px;
+    top: 348px;
+    line-height: 15px;
+    font-weight: 400;
+    text-align: justify;
+}
+
+#about{
+    align-items: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    width: 72px;
+    height: 29px;
+    left: 150px;
+    top: 300px;
+}
