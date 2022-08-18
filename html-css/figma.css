@@ -1,0 +1,128 @@
+@media only screen and (max-width: 600px) {
+    body{
+    font-size: 12px;
+    font-family: 'Libre Franklin', sans-serif;
+    font-style: normal;
+    color: black;
+    box-sizing: border-box;
+    width: 375px;
+    height: 1948px;
+    align-items: center;
+    background-color: white;
+}
+}
+
+.first{
+    background-image: url("https://www.investporto.pt/fotos/noticias/porto_historico.4c592b39.fill-720x478-c50.format-png_5130476235fbd17ed5270c.png");
+    color: white;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 373px;
+    height: 275px;
+    left: 0px;
+    top: 0px;
+}
+
+svg{
+    position: absolute;
+    color: white;
+    top: 39px;
+    left: 34px;
+}
+
+h1{
+    text-align: center;
+    line-height: 29px;
+    width: 116px;
+    height: 29px;
+    font-weight: 700;
+    position: absolute;
+    top: 36px;
+    left: 129px;
+    display: flex;
+}
+
+h2{
+    text-align: center;
+    width: 217px;
+    height: 24px;
+    left: 78px;
+    top: 115px;
+    position: absolute;
+    line-height: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+h3{
+    width: 181px;
+    text-align: center;
+    height: 16px;
+    left: 96px;
+    top: 152px;
+    position: absolute;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+h5{
+    text-align: center;
+    width: 79px;
+    height: 16px;
+    left: 146px;
+    top: 209px;
+    position: absolute;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.second{
+    align-content: center;
+    color: #333333;
+    position: absolute;
+    line-height: 15px;
+    font-weight: 400;
+    left: 0px;
+    top: 275px;
+    width: 375px;
+    height: 335px;
+}
+
+#about{
+    position: absolute;
+    width: 72px;
+    height: 29px;
+    left: 150px;
+    top: 25px;
+}
+
+#text{
+    text-align: justify;
+    position:absolute;
+    width: 312px;
+    height: 212px;
+    left: 30px;
+    top: 73px;
+}
+
+.third{
+    position: absolute;
+    width: 375px;
+    height: 617px;
+    left: 0px;
+    top: 568px;
+    background-color: #FFFAF2;
+}
+
+#skills{
+    position: absolute;
+    width: 62px;
+    height: 29px;
+    left: 156px;
+    top: 593px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
+
