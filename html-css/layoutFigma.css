@@ -1,72 +1,83 @@
-body{
-    left: 0;
-    top: 0;
+@media only screen and (max-width: 600px) {
+    body{
     width: 375px;
     height: 1948px;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-size: 12px;
-    position: relative;
-    font-family: "Franklin Gothic Medium", cursive;
+    position: absolute;
+    font-family: 'Libre Franklin', sans-serif;
     font-style: normal;
     color: white;
+}
 }
 
 .header{
     position: absolute;
     color: white;
-    top: 29px;
-    left: 24px;
+    top: 39px;
+    left: 34px;
 }
 
 #portfolio{
-    position: absolute;
+    line-height: 29px;
     width: 116px;
     height: 29px;
-    font-size: 24px;
-    line-height: 29px;
+    font-weight: 700;
+    position: absolute;
     top: 36px;
     left: 129px;
 }
 
 #image{
-    position: absolute;
     background-image: url("https://www.investporto.pt/fotos/noticias/porto_historico.4c592b39.fill-720x478-c50.format-png_5130476235fbd17ed5270c.png");
+    position: absolute;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 373px;
     height: 275px;
 }
 
-#h2h{
-    width: 181px;
-    height: 16px;
-    left: 96px;
-    top: 152px;
+#content{
+    font-weight: 400;
+    align-items: center;
+}
+
+h2{
+    width: 217px;
+    height: 24px;
+    left: 78px;
+    top: 115px;
     position: absolute;
-    font-size: 20px;
     line-height: 16px;
     display: flex;
     align-items: center;
 }
 
-h3, h5{
+h3{
+    width: 181px;
+    height: 16px;
+    left: 96px;
+    top: 152px;
     position: absolute;
     font-size: 13px;
     line-height: 16px;
 }
 
-.layout{
-    background: #C66C4966 40%;
+h5{
+    width: 79px;
+    height: 16px;
+    left: 146px;
+    top: 209px;
     position: absolute;
+    font-size: 13px;
+    line-height: 16px;
 }
 
 .main{
     color: #333333;
     position: absolute;
-    width: 312px;
-    height: 212px;
     left: 34px;
     top: 348px;
     line-height: 15px;
@@ -74,8 +85,19 @@ h3, h5{
     text-align: justify;
 }
 
+#lorem{
+    left: 0px;
+    top: 275px;
+    width: 375px;
+    height: 335px;
+}
+
+#text{ 
+    width: 312px;
+    height: 212px;
+}
+
 #about{
-    align-items: center;
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
