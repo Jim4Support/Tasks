@@ -3,7 +3,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap');
         font-size: 12px;
         font-family: 'Libre Franklin', sans-serif;
-        color: black;
+        color: #333333;
         width: 375px;
         height: 1948px;
         background-color: white;
@@ -79,7 +79,6 @@ h4 {
 
 .second {
     align-content: center;
-    color: #333333;
     position: absolute;
     line-height: 15px;
     font-weight: 400;
@@ -90,7 +89,6 @@ h4 {
 }
 
 #about {
-    color: #333333;
     position: absolute;
     width: 72px;
     height: 29px;
@@ -99,7 +97,6 @@ h4 {
 }
 
 #text {
-    color: #333333;
     font-weight: 400;
     text-align: justify;
     position: absolute;
@@ -130,24 +127,28 @@ h4 {
 }
 
 .third img {
+    display: unset;
     position: absolute;
     width: 224px;
     height: 218px;
     left: 75px;
     top: 79px;
+    padding: unset;
+    margin: unset;
 }
 
 .params {
     position: absolute;
     left: 34px;
     right: 32px;
-    top: 323px;
+    top: 312px;
     font-weight: 400;
 }
 
 .params strong {
     font-weight: 600;
     line-height: 25px;
+    padding-top: 6px;
 }
 
 .blocks {
@@ -163,7 +164,7 @@ h4 {
 }
 
 .profile {
-    padding-bottom: 22px;
+    padding-bottom: 16px;
 }
 
 .progressBar {
@@ -209,7 +210,8 @@ h4 {
     font-weight: 500;
     font-size: 14px;
     line-height: 25px;
-    margin-bottom: 15px;
+    margin-bottom: unset;
+    margin-top: 19px;
 }
 
 #lorem {
@@ -217,13 +219,12 @@ h4 {
     font-weight: 400;
     font-size: 12px;
     text-align: center;
-    margin-top: 15px;
-    margin-bottom: unset;
+    margin: unset;
     position: absolute;
     width: 308px;
     height: 71px;
     left: 34px;
-    top: 85px;
+    top: 113px;
     line-height: 15px;
 }
 
@@ -239,6 +240,37 @@ img{
 
 .collage {
     position: absolute;
-    top: 167px;
+    top: 184px;
     left: 34px;
+}
+
+.fifth {
+    position: absolute;
+    width: 375px;
+    height: 360px;
+    left: -1px;
+    top: 1588px;
+    background: #FFFAF2;
+}
+
+#touch {
+    position: absolute;
+    width: 150px;
+    height: 29px;
+    left: 119px;
+    top: 26px;
+    margin: unset;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.fifth div {
+    top: 80px;
+    position: absolute;
+}
+
+address{
+    position: absolute;
+    top: 271px;
 }
