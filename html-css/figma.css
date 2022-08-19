@@ -1,18 +1,17 @@
 @media only screen and (max-width: 600px) {
-    body{
-    font-size: 12px;
-    font-family: 'Libre Franklin', sans-serif;
-    font-style: normal;
-    color: black;
-    box-sizing: border-box;
-    width: 375px;
-    height: 1948px;
-    align-items: center;
-    background-color: white;
-}
+    body {
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap');
+        font-size: 12px;
+        font-family: 'Libre Franklin', sans-serif;
+        color: black;
+        width: 375px;
+        height: 1948px;
+        background-color: white;
+        font-weight: 400;
+    }
 }
 
-.first{
+.first {
     background-image: url("https://www.investporto.pt/fotos/noticias/porto_historico.4c592b39.fill-720x478-c50.format-png_5130476235fbd17ed5270c.png");
     color: white;
     position: absolute;
@@ -24,60 +23,61 @@
     top: 0px;
 }
 
-svg{
+svg {
     position: absolute;
     color: white;
     top: 39px;
     left: 34px;
 }
 
-h1{
+h1 {
+    font-size: 24px;
     text-align: center;
-    line-height: 29px;
     width: 116px;
     height: 29px;
     font-weight: 700;
     position: absolute;
-    top: 36px;
+    top: 20px;
     left: 129px;
-    display: flex;
 }
 
-h2{
-    text-align: center;
+h2 {
+    font-weight: 400;
+    font-size: 20px;
     width: 217px;
     height: 24px;
-    left: 78px;
-    top: 115px;
+    left: 90px;
+    top: 85px;
     position: absolute;
-    line-height: 16px;
-    display: flex;
-    flex-direction: column;
+    text-align: center;
 }
 
-h3{
-    width: 181px;
+h3 {
     text-align: center;
+    font-weight: 400;
+    width: 181px;
     height: 16px;
     left: 96px;
-    top: 152px;
+    top: 139px;
     position: absolute;
     font-size: 13px;
     line-height: 16px;
 }
 
-h5{
+h4 {
+    text-decoration-line: underline;
+    font-weight: 400;
     text-align: center;
     width: 79px;
     height: 16px;
     left: 146px;
-    top: 209px;
+    top: 200px;
     position: absolute;
     font-size: 13px;
     line-height: 16px;
 }
 
-.second{
+.second {
     align-content: center;
     color: #333333;
     position: absolute;
@@ -89,7 +89,8 @@ h5{
     height: 335px;
 }
 
-#about{
+#about {
+    color: #333333;
     position: absolute;
     width: 72px;
     height: 29px;
@@ -97,16 +98,18 @@ h5{
     top: 25px;
 }
 
-#text{
+#text {
+    color: #333333;
+    font-weight: 400;
     text-align: justify;
-    position:absolute;
-    width: 312px;
+    position: absolute;
+    width: 303px;
     height: 212px;
-    left: 30px;
+    left: 32px;
     top: 73px;
 }
 
-.third{
+.third {
     position: absolute;
     width: 375px;
     height: 617px;
@@ -115,14 +118,27 @@ h5{
     background-color: #FFFAF2;
 }
 
-#skills{
+#skills {
     position: absolute;
     width: 62px;
     height: 29px;
     left: 156px;
-    top: 593px;
+    top: 8px;
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
 }
 
+.third img {
+    position: absolute;
+    width: 224px;
+    height: 218px;
+    left: 75px;
+    top: 79px;
+}
+
+.params {
+    position: absolute;
+    left: 34px;
+    top: 323px;
+}
