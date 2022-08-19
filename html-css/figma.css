@@ -140,5 +140,105 @@ h4 {
 .params {
     position: absolute;
     left: 34px;
+    right: 32px;
     top: 323px;
+    font-weight: 400;
+}
+
+.params strong {
+    font-weight: 600;
+    line-height: 25px;
+}
+
+.blocks {
+    align-items: center;
+    width: 308px;
+    height: auto;
+    display: flex;
+    float: left;
+    justify-content: space-between;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    flex-wrap: wrap;
+}
+
+.profile {
+    padding-bottom: 22px;
+}
+
+.progressBar {
+    width: 73%;
+    height: 18px;
+    background: #F5D6AB;
+}
+
+.bar {
+    height: 100%;
+    background: #C66C49;
+}
+
+.fourth {
+    position: absolute;
+    width: 375px;
+    height: 404px;
+    left: 0px;
+    top: 1185px;
+    color: #333333;
+}
+
+#port {
+    position: absolute;
+    width: 101px;
+    height: 29px;
+    left: 137px;
+    top: 0px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    margin: unset;
+    padding-top: 25px;
+    padding-bottom: 19px;
+}
+
+#ux {
+    position: absolute;
+    width: 93px;
+    height: 25px;
+    left: 141px;
+    top: 54px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 25px;
+    margin-bottom: 15px;
+}
+
+#lorem {
+    letter-spacing: 0.2px;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: unset;
+    position: absolute;
+    width: 308px;
+    height: 71px;
+    left: 34px;
+    top: 85px;
+    line-height: 15px;
+}
+
+img{
+    display: flex;
+    padding-left: 6px;
+    padding-bottom: 6px;
+}
+
+.fourth div{
+    display: inline-block;
+}
+
+.collage {
+    position: absolute;
+    top: 167px;
+    left: 34px;
 }
