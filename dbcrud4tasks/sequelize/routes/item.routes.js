@@ -6,5 +6,5 @@ export function sequelizeItems(app) {
 
     router.get("/", findAll);
 
-    app.use('/api/tasks', router);
+    app.use('/api/collection/today', router);
 }

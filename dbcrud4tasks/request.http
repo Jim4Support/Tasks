@@ -1,6 +1,6 @@
 ### GET request with a header
 
-GET http://localhost:4000/tasks
+GET localhost:4000/tasks
 
 Accept: application/json
 Content-Type: application/json
@@ -84,8 +84,25 @@ GET localhost:4000/lists/2/tasks
 Accept: application/json
 Content-Type: application/json
 
-### LISTS SEQUELIZE
-GET http://localhost:4000/api/tasks
+### LISTS SEQUELIZE GET
+GET http://localhost:4000/api/collection/today
+
+Accept: application/json
+Content-Type: application/json
+
+### LISTS SEQUELIZE POST
+POST http://localhost:4000/api/lists
+
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "List created"
+}
+
+
+### DELETE LISTS
+DELETE localhost:4000/api/lists/10
 
 Accept: application/json
 Content-Type: application/json

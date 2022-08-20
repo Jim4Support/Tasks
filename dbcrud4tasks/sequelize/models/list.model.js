@@ -1,15 +1,18 @@
-export function listModel(sequelize, Sequelize) {
-    const List = sequelize.define("lists", {
-        name: {
-            type: Sequelize.STRING
+import {INTEGER, STRING} from "sequelize";
+
+export function listModel(sequelize) {
+    return sequelize.define("lists", {
+            name: {
+                type: STRING,
+            },
+            id: {
+                primaryKey: true,
+                type: INTEGER,
+                nullable: false,
+                autoIncrement: true
+            },
         },
-        id: {
-            primaryKey: true,
-            type: Sequelize.INTEGER
-        },
-    },
-    {
-        timestamps: false
-    })
-    return List;
+        {
+            timestamps: false
+        });
 }

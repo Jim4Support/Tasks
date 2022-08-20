@@ -11,4 +11,3 @@ export const findAll = (req, res) => {
 }).then(data => res.json(data))
 }
 
-
