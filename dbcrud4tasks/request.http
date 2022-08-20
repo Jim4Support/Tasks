@@ -84,5 +84,8 @@ GET localhost:4000/lists/2/tasks
 Accept: application/json
 Content-Type: application/json
 
-###
+### LISTS SEQUELIZE
+GET http://localhost:4000/api/tasks
 
+Accept: application/json
+Content-Type: application/json
