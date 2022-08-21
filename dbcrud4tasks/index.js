@@ -5,7 +5,7 @@ import {sequelizeLists} from "./sequelize/routes/list.routes.js";
 import {sequelizeItems} from "./sequelize/routes/item.routes.js";
 
 const port =  4000;
-const app = express();
+export const app = express();
 
 function logRequest({method, url}, res, next) {
     console.log(`[${new Date().toISOString()}] ${method} ${url}`);

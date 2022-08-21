@@ -10,13 +10,13 @@ export function itemModel(sequelize, Sequelize) {
             done: {
                 type: Sequelize.BOOLEAN
             },
-            due_date: {
+            dueDate: {
                 type: Sequelize.DATE
             },
             description: {
                 type: Sequelize.STRING
             },
-            list_id: {
+            listId: {
                 type: Sequelize.INTEGER
             },
         },

@@ -84,14 +84,24 @@ GET localhost:4000/lists/2/tasks
 Accept: application/json
 Content-Type: application/json
 
+
+
+
+
+
+
+
 ### LISTS SEQUELIZE GET
 GET http://localhost:4000/api/collection/today
+# curl http://localhost:4000/api/collection/today
 
 Accept: application/json
 Content-Type: application/json
 
 ### LISTS SEQUELIZE POST
 POST http://localhost:4000/api/lists
+
+# curl localhost:4000/api/lists -d '{"name": "already put" }' -H "Content-Type: application/json"
 
 Accept: application/json
 Content-Type: application/json
@@ -100,9 +110,22 @@ Content-Type: application/json
   "name": "List created"
 }
 
-
 ### DELETE LISTS
-DELETE localhost:4000/api/lists/10
+DELETE localhost:4000/api/lists/16
+
+# curl -X DELETE localhost:4000/api/lists/14
 
 Accept: application/json
 Content-Type: application/json
+
+### UPDATE LISTS
+PUT http://localhost:4000/api/lists/8
+
+# curl -X PUT localhost:4000/api/lists/6 -d '{"name": "Changed"}' -H "Content-Type: application/json"
+
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "put change"
+}

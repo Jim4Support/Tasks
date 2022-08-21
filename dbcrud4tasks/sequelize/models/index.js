@@ -18,7 +18,7 @@ db.item = itemModel(sequelize, Sequelize);
 db.list = listModel(sequelize, Sequelize);
 
 db.itemList = db.item.belongsTo(db.list, {
-    foreignKey: 'list_id',
+    foreignKey: 'listId',
     as: 'list',
     onDelete: 'CASCADE'
 });
