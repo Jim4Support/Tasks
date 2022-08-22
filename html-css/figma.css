@@ -1,5 +1,6 @@
 @media only screen and (max-width: 600px) {
 }
+
 body {
     font-size: 12px;
     font-family: 'Libre Franklin', sans-serif;
@@ -34,8 +35,6 @@ body {
     position: absolute;
     width: 24px;
     height: 24px;
-    color: white;
-    margin: unset;
     left: 34px;
     top: 39px;
     padding: unset;
@@ -79,28 +78,29 @@ h4 {
 }
 
 .second {
-    width: 375px;
+    width: 100%;
     height: 293px;
 }
 
 .second h1 {
-    padding: 25px 150px 7px 150px;
+    padding: 25px 150px 0px 150px;
     text-align: center;
 }
 
 .second p {
-    padding: 0 30px;
+    margin: unset;
+    padding: 19px 30px 0px 34px;
     text-align: justify;
 }
 
 .third {
-    width: 375px;
+    width: 100%;
     height: 617px;
     background-color: #FFFAF2;
 }
 
 #skills {
-    margin: unset;
+    margin: 0 auto;
     padding: 25px 156px;
     font-weight: 600;
     font-size: 24px;
@@ -110,25 +110,23 @@ h4 {
 .third img {
     width: 224px;
     height: 218px;
-    padding-left: 71px;
-    padding-right: 80px;
-    margin: unset;
+    padding: unset;
+    margin: 0 auto;
 }
 
 .params {
-    padding-left: 33px;
-    padding-right: 33px;
+    padding-left: 34px;
+    padding-right: 32px;
     font-weight: 400;
 }
 
 .params strong {
     font-weight: 600;
     line-height: 25px;
-
 }
 
-.params span {
-    text-align: left;
+.box {
+    padding-bottom: 9px;
 }
 
 .blocks {
@@ -136,15 +134,23 @@ h4 {
     align-items: center;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .profile {
-    padding-top: 18px;
+    padding-top: 26px;
     padding-bottom: 22px;
+    justify-content: start;
+    gap: 60px;
+}
+
+.tools {
+    justify-content: start;
+    gap: 70px;
 }
 
 .progressBar {
-    width: 73%;
+    width: 68%;
     height: 18px;
     background: #F5D6AB;
 }
@@ -155,7 +161,7 @@ h4 {
 }
 
 .fourth {
-    width: 375px;
+    width: 100%;
     height: 404px;
 }
 
@@ -172,41 +178,51 @@ h4 {
     text-align: center;
     font-weight: 500;
     font-size: 14px;
-
+    margin: unset;
+    padding-bottom: 15px;
+    padding-top: 3px;
 }
 
 #lorem {
-    letter-spacing: 0.2px;
+    padding-bottom: 25px;
     font-weight: 400;
     font-size: 12px;
     text-align: center;
-    margin: unset;
+    margin: 0 auto;
     line-height: 15px;
+    padding-left: 34px;
+}
+
+.collage {
+    padding-left: 20px;
+    display: block;
+    margin: 0 auto;
 }
 
 img{
     display: flex;
-    padding-left: 6px;
-    padding-bottom: 6px;
+    padding-left: 14px;
+    padding-bottom: 14px;
 }
 
 .fourth div{
     display: inline-block;
 }
 
-.collage {
-
-}
-
 .fifth {
     background-color: #FFFAF2;
-    width: 375px;
+    width: 100%;
     height: auto;
+    font-size: 14px;
 }
-.get-in-touch h1 {
-    font-size: 24px;
-    padding-top: 26px;
-    text-align: center;
+.fifth h1 {
+    font-weight: 600;
+    padding: 25px 0px;
+}
+
+p {
+    padding-left: 42px;
+    margin: 0px 0px 19px 0px;
 }
 
 .container-get {
@@ -215,11 +231,22 @@ img{
 }
 
 .get-left {
-    padding-left: 42px;
-    padding-right: 90px;
+    margin: unset;
+    padding-right: 56px;
 }
 
-.get-end {
-    padding-left: 42px;
-    padding-bottom: 50px;
+.get-end p {
+    margin: unset;
+}
+
+#mail {
+    padding-top: 11px;
+    padding-bottom: 7px;
+}
+
+#chevron img {
+    display: inline;
+    float: right;
+    margin: unset;
+    padding: 24px 33px;
 }
