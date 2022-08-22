@@ -5,22 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fig</title>
+    <title>Figma</title>
     <link rel="stylesheet" href="figma.css">
+    <link href='https://fonts.googleapis.com/css?family=Libre Franklin' rel='stylesheet'>
 </head>
 <body>
 <div class="item first">
-    <svg width="24" height="24" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M24 1.5H0V0H24V1.5ZM24 13.5H0V12H24V13.5ZM24 7.48828H0V6H24V7.48828Z" fill="white"/>
-    </svg>
-    <h1>Portfolio</h1>
-    <h2>Hi, It’s Théophile Seyrig</h2>
+    <div class="back">
+        <img id="sv" src="GlobalNavButton(E700).svg">
+        <h1>Portofolio</h1>
+        <div class="headers">
+        <h2>Hi, It’s Théophile Seyrig</h2>
     <h3>Designer from Porto, Portugal</h3>
     <h4>Latest works</h4>
+        </div>
+    </div>
 </div>
 <div class="item second">
-    <h1 id="about">About</h1>
-    <p id="text">
+    <h1>About</h1>
+    <p>
         Lorem ipsum dolor sit amet, Arcu, sed nisi, mi, arcu libero phasellus tincidunt.
         Rhoncus, diam penatibus aliquet tellus, in rutrum augue.
         Pellentesque senectus risus consectetur et sed purus sed. Consectetur adipiscing elit.
@@ -38,33 +41,39 @@
     <div class="params">
         <div class="blocks profile">
             <strong>Profile</strong>
-            <div>
+            <span>
                 UI / UX Engineer, Front-end Developer
-            </div>
+            </span>
         </div>
         <div class="blocks">
             <strong>Front-end Dev </strong>
             <div class="progressBar">
                 <div class="bar" style="width: 68%"></div>
             </div>
+        </div>
+            <div class="blocks">
             <strong>Tools</strong>
-            <div> HTML, CSS, JS, Bootstrap, React</div>
+            <span> HTML, CSS, JS, Bootstrap, React</span>
         </div>
         <div class="blocks">
             <strong>UI Design</strong>
             <div class="progressBar">
                 <div class="bar" style="width: 79%"></div>
             </div>
+            </div>
+        <div class="blocks">
             <strong>Tools</strong>
-            <div> Adobe PS, AI, XD, Figma, InVision</div>
+            <span> Adobe PS, AI, XD, Figma, InVision</span>
         </div>
         <div class="blocks">
             <strong>UX Research</strong>
             <div class="progressBar">
                 <div class="bar" style="width: 85%"></div>
             </div>
+        </div>
+        <div class="blocks">
             <strong>Tools</strong>
-            <div> Paper, Pen, Balsamiq</div>
+            <span> Paper, Pen, Balsamiq</span>
         </div>
     </div>
 </div>
@@ -87,21 +96,27 @@
     </div>
     </div>
 </div>
-<div class="item fifth">
-    <h1 id="touch">Get in Touch</h1>
-    <div>
-        Dribbble
-        Behance
-        CodePen
-        GitHub
-        Medium
-        LinkedIn
-        Facebook
-        Instagram
-        Twitter
+<div class="fifth">
+<h1>Get in Touch</h1>
+<div class="container-get">
+    <div class="get-left">
+        <p>Dribbble</p>
+        <p>Behance</p>
+        <p>CodePen</p>
+        <p>GitHub</p>
+        <p>Medium</p>
     </div>
-    <address>seyrig@mailme.com</address>
-    <address>+55 6645 665544</address>
+    <div class="get-right">
+        <p>LinkedIn</p>
+        <p>Facebook</p>
+        <p>Instagram</p>
+        <p>Twitter</p>
+    </div>
+</div>
+<div class="get-end">
+    <p>seyrig@mailme.com</p>
+    <p>+ 55 6645 665544</p>
+</div>
 </div>
 </body>
 </html>
