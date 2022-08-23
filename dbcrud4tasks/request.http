@@ -111,9 +111,9 @@ Content-Type: application/json
 }
 
 ### DELETE LISTS
-DELETE localhost:4000/api/lists/16
+DELETE localhost:4000/api/lists/20
 
-# curl -X DELETE localhost:4000/api/lists/14
+# curl -X DELETE localhost:4000/api/lists/20
 
 Accept: application/json
 Content-Type: application/json
