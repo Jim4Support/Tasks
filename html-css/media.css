@@ -6,11 +6,19 @@
     #arrow {
         display: none;
     }
+
+    #chevSmall {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 768px){
+    #chevron {
+        display: none;
+    }
+
     .first {
-        background-image: url("./bg\ \(1\).png");
+        background-image: url("bg(1).png");
         height: 410px;
     }
 
@@ -20,7 +28,7 @@
     }
 
     .padding {
-        padding: 0 11.6% 0 11.6%;
+        padding: 0 11.6% 7% 11.6%;
     }
 
     .second {
@@ -36,11 +44,12 @@
         background-size: 100% 100%;
         display: flex;
         text-align: left;
-        padding: 6.5% 11.6% 0 11.6%;
+        align-items: center;
+        padding: 5.5% 11.6% 0 11.6%;
     }
 
     .headers {
-        margin-top: 53px;
+        margin-top: 6%;
         min-height: 251px;
         text-align: left;
         padding: 0 11.6% 0 11.6%;
@@ -51,8 +60,11 @@
     }
     
     h1 {
-        padding: unset;
+        text-align: left;
+        padding: 7% 0 0 0;
         margin: unset;
+        font-weight: 700;
+        font-size: 13px;
     }
 
     h2 {
@@ -64,24 +76,194 @@
     }
 
     h4 {
+        font-size: 10px;
         margin-top: 43px;
-    }
-
-    #folio {
-        display: none;
-    }
-
-    #small {
-        font-weight: 400;
-        flex: 5;
-        text-align: start;
     }
 
     h6 {
         flex: 1;
-        font-size: 12px;
+        font-size: 10px;
         margin: unset;
         justify-content: space-between;
     }
 
+    #folio {
+        font-weight: 400;
+        flex: 5;
+        text-align: start;
+        padding: unset;
+    }
+
+    #contact {
+        text-align: right;
+    }
+
+    .second h1 {
+        font-weight: 700;
+        font-size: 13px;
+        margin: unset;
+    }
+
+    .second p {
+        height: auto;
+        font-weight: 400;
+        font-size: 9px;
+        margin-top: 6%;
+        margin-bottom: 12.5%;
+        line-height: 15.6px;
+        letter-spacing: 0.2px;
+    }
+
+    #skills {
+        line-height: 29px;
+        font-weight: 700;
+        font-size: 13px;
+        padding: 7% 0 6% 0;
+    }
+
+    .third img {
+        padding: unset;
+        margin: 1% 0 0 0;
+        max-width: 31.5%;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-bottom: 12%;
+    }
+
+    .params {
+        width: 57%;
+    }
+
+    .params span {
+        font-size: 9px;
+    }
+
+    .params strong {
+        font-size: 9px;
+    }
+
+    .profile {
+        padding-bottom: 5.5%;
+    }
+
+    .box {
+        margin-top: unset;
+    }
+
+    .blocks {
+        margin-bottom: unset;
+    }
+
+    .tools {
+        margin-bottom: unset;
+    }
+
+    #last {
+        padding: unset;
+        margin: unset;
+    }
+
+    #port {
+        line-height: 29px;
+        font-weight: 700;
+        font-size: 13px;
+        margin: unset;
+    }
+
+    #ux {
+        line-height: 29px;
+        font-weight: 700;
+        font-size: 10px;
+        text-align: left;
+        padding-top: 5.2%;
+    }
+
+    #lorem {
+        text-align: start;
+        flex: 1;
+        font-size: 10px;
+        line-height: 17px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .collage {
+        flex: 2;
+        text-align: right;
+    }
+
+    #group {
+        display: flex;
+    }
+
+    .pictureRight img {
+        width: 135px;
+    }
+
+    .pictureLeft img {
+        height: 77px;
+        align-self: flex-start;
+    }
+
+    #rectangle {
+        height: 126px;
+    }
+
+    .fifth {
+        padding: 0 11.6% 6% 11.6%;
+    }
+
+    .fifth h1 {
+        font-weight: 700;
+        font-size: 13px;
+        padding: 7% 0 3.2% 0;
+    }
+
+    .container-get {
+        padding: unset;
+        flex: 2;
+    }
+
+    .container-get p{
+        font-size: 10px;
+        padding: 0 0 2px 0;
+    }
+
+    .get-end {
+        flex: 1;
+    }
+
+    .get-left {
+        padding-right: 40%;
+    }
+
+    #getAll {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    #chevSmall img{
+        padding: 62px 4px 0 0;
+        position: relative;
+        float: right;
+    }
+
+    #mail {
+        font-size: 10px;
+        padding: unset;
+    }
+
+    #tel {
+        font-size: 10px;
+        padding: unset;
+    }
+
 }
+
+

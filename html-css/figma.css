@@ -81,8 +81,6 @@ h6 {
 }
 
 .second h1 {
-    line-height: 29px;
-    text-align: center;
     margin: 0 6px 19px 0;
 }
 
@@ -104,7 +102,6 @@ h6 {
     line-height: 29px;
     font-weight: 600;
     font-size: 24px;
-    text-align: center;
     padding: 25px 5px 25px 0;
     margin: unset;
 }
@@ -221,7 +218,6 @@ span {
     background-color: #FFFAF2;
 }
 .fifth h1 {
-    text-align: center;
     font-weight: 600;
     font-size: 24px;
     padding-top: 26px;
