@@ -1,3 +1,17 @@
 .desc {
     color: cadetblue;
 }
+
+.delete {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#show {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hiddenTask {
+    display: none;
+}
