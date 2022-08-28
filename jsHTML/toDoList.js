@@ -1,15 +1,38 @@
 const tasks = document.getElementById('tasks');
 const showTasksButtonElement = document.getElementById('showTasks');
+const buttonAddTask = document.getElementById('submit-task');
+
+
 let switcher = false;
+
+/*buttonAddTask.onsubmit = () => {
+    if (inputTextArea.value === ' ' || inputTextArea.value.length === 0) {
+        errorInput.innerText = 'Please, enter a task title'
+        inputTextArea.focus();
+        return false;
+    } else {
+        errorInput.innerText = '';
+        createTask();
+        inputTextArea.value = '';
+        inputTextArea.focus();
+        inputDescArea.value = '';
+    }
+}*/
 
 showTasksButtonElement.onclick = () => {
     switcher = !switcher;
     renderTask();
 }
 
+function hideTasks(id, done) {
+    const tasksElement = document.getElementById(id);
+    tasksElement.classList.toggle('hiddenTask', done);
+}
+
 function correctDate(dueDate) {
     if (dueDate) {
-        const day = new Date(dueDate).getDate();
+        const noZeroDay = new Date(dueDate).getDate();
+        const day = noZeroDay.toString().length === 1 ? (0 + noZeroDay.toString()) : noZeroDay;
         const noZeroMonth = new Date(dueDate).getMonth() + 1;
         const month = noZeroMonth.toString().length === 1 ? (0 + noZeroMonth.toString()) : noZeroMonth;
         const year = new Date(dueDate).getFullYear();
@@ -17,7 +40,7 @@ function correctDate(dueDate) {
     } else return '~no date~';
 }
 
-function renderTask(){
+function renderTask() {
     tasks.innerHTML = '';
     data.forEach(generateTasks);
 }
@@ -50,12 +73,30 @@ function doneSwitcher(event) {
     renderTask();
 }
 
+class Task {
+    constructor(id, dueDate, done, name, description) {
+        if (typeof name === 'object') {
+            Object.assign(this, name);
+        } else {
+            this.id = id;
+            this.dueDate = dueDate;
+            this.done = done;
+            this.name = name;
+            this.description = description;
+        }
+    }
+
+    toString() {
+        return `${this.id} ${this.dueDate} ${this.done} ${this.name} ${this.description}`;
+    }
+}
+
 let data = [
-    {id: 1, dueDate: new Date('2022-08-27'), done: false, name: 'hometask', description: null},
-    {id: 2, dueDate: new Date('2022-08-28'), done: false, name: 'officetask', description: 'make office work'},
-    {id: 3, dueDate: new Date('2022-08-27'), done: true, name: 'shopping', description: 'buy vegetables'},
-    {id: 4, dueDate: null, done: true, name: 'walk', description: 'go for a walk'},
-    {id: 5, dueDate: new Date('2022-08-26'), done: false, name: 'CSS Figma', description: 'to do adaptive mobile first'}
+    new Task (1, new Date('2022-08-28'), false, 'hometask', null),
+    new Task (2, new Date('2022-08-29'), false, 'officetask', 'make office work'),
+    new Task (3, new Date('2022-08-28'), true, 'shopping', 'buy vegetables'),
+    new Task (4, null, true, 'walk', 'go for a walk'),
+    new Task (5, new Date('2022-08-26'), false, 'CSS Figma', 'to do adaptive mobile first'),
 ];
 
 function generateTasks(fields) {
@@ -78,14 +119,22 @@ function generateTasks(fields) {
     </span>
     <hr>
     </div>`
-    if (!switcher){
-    hideTasks(fields.id, done);
+    if (!switcher) {
+        hideTasks(fields.id, done);
     } else {
         hideTasks(fields.id, false);
     }
 }
-function hideTasks(id, done) {
-    const tasksElement = document.getElementById(id);
-    tasksElement.classList.toggle('hiddenTask', done);
-}
+
 renderTask();
+
+const tasksForm = document.forms['task-input'];
+tasksForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(tasksForm);
+    const task = new Task (Object.fromEntries(formData.entries()));
+    console.log(task)
+    data.push(task);
+    generateTasks(task);
+    tasksForm.reset();
+})

@@ -7,13 +7,22 @@
 </head>
 <body>
 <h1>To Do List</h1>
-<span id="show">
+<div>
+<form name="task-input">
+    <input id="newDate" type="date">
+    <input id="newName" type="text" placeholder="Add a new task">
+    <span id="errorInput"></span>
+    <input id="newDesc" type="text" placeholder="Add a description">
+    <button id="submit-task" type="submit">Add</button>
+</form>
+<div id="show">
     <button type="button" id="showTasks">Show done</button>
-    </span>
-<div class="tasks" id="tasks">
-
+    </div>
 </div>
+<br>
 
-<script src="toDoList.js"></script>
+<div class="tasks" id="tasks"></div>
+
+<script type="text/javascript" src="toDoList.js"></script>
 </body>
 </html>
