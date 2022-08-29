@@ -45,7 +45,7 @@ tasksForm.addEventListener('submit', (event) => {
         errorInput.innerText = '';
         const formData = new FormData(tasksForm);
         const formTask = Object.fromEntries(formData.entries());
-        data.push(new Task(data.id, onPushDate(inputDate[0].value), false, inputTask[0].value, inputDesc[0].value));
+        data.push(new Task(data.id, onPushDate(inputDate[0].value), false, inputTask[0].value, inputDesc[0].value.trim()));
         generateTasks(formTask);
         console.log(data)
         tasksForm.reset();
@@ -89,9 +89,11 @@ function renderTask() {
 }
 
 function overdue(dueDate) {
-    const now = new Date();
-    now.setHours(0, 0, 0, 0);
-    return now > dueDate;
+    if (dueDate !== null) {
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+        return now > dueDate;
+    }
 }
 
 function deleteTask(event) {
@@ -120,7 +122,8 @@ function generateTasks(fields) {
     const {dueDate, done, name, description} = fields;
     const textDecoration = done ? 'line-through' : 'none';
     const dateColor = (overdue(dueDate) && !done) ? 'red' : '';
-    tasks.innerHTML += ` <div id="${fields.id}" class="tasksElement"> <hr size="5px">
+    const backColor = (overdue(dueDate) && !done) ? 'red' : done ? 'green' : 'grey';
+    tasks.innerHTML += ` <div id="${fields.id}" class="tasksElement"> <hr class="hr" size="5px" style="background-color: ${backColor}">
         <div class="date" style="color: ${dateColor}">
         ${correctDate(dueDate)}
         </div>
