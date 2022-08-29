@@ -10,9 +10,9 @@ router.put('/tasks/:id', put);
 router.delete('/tasks/:id', del);
 
 
-function create(req, res, next) { // curl localhost:4000/tasks -d '{"title": "created task", "done": false, "due_date": "2022-10-12", "description": "some desc", "list_id": 1}' -H "Content-Type: application/json"
-    const {done, title, due_date, list_id, description} = req.body;
-    createTask(done, title, due_date, list_id, description).then(t => res.status(201).json(t))
+function create(req, res, next) { // curl localhost:4000/tasks -d '{"name": "created task", "done": false, "dueDate": "2022-10-12", "description": "some desc", "listId": 1}' -H "Content-Type: application/json"
+    const {done, name, dueDate, listId, description} = req.body;
+    createTask(done, name, dueDate, listId, description).then(t => res.status(201).json(t))
         .catch(next)
 }
 function get(req, res, next) { // curl localhost:4000/tasks
@@ -26,21 +26,21 @@ function getSingle(req, res, next) { // curl localhost:4000/tasks/2
         .then(t => t ? res.json(t) : res.sendStatus(404))
         .catch(next)
 }
-function update(req, res, next) { // curl -X PATCH localhost:4000/tasks/14 -d '{"title": "Changed", "done": true, "due_date": "2022-08-13", "list_id": 2, "description": "changed" }' -H "Content-Type: application/json"
+function update(req, res, next) { // curl -X PATCH localhost:4000/tasks/14 -d '{"name": "Changed", "done": true, "dueDate": "2022-08-13", "listId": 2, "description": "changed" }' -H "Content-Type: application/json"
     const id = req.params.id;
     getSingleTask(id).then(oldTask => Object.assign(oldTask, req.body))
-        .then(({done, title, due_date, list_id, description}) => updateTask(id, done, title, due_date, list_id, description))
+        .then(({done, name, dueDate, listId, description}) => updateTask(id, done, name, dueDate, listId, description))
         .then(t => res.json(t))
         .catch(next)
 }
-function put(req, res, next) { // curl -X PUT localhost:4000/tasks/14 -d '{"title": "put changed", "due_date": "2022-08-14", "list_id": 1, "description": "already put" }' -H "Content-Type: application/json"
+function put(req, res, next) { // curl -X PUT localhost:4000/tasks/14 -d '{"name": "put changed", "dueDate": "2022-08-14", "listId": 1, "description": "already put" }' -H "Content-Type: application/json"
     const id = req.params.id;
     const done = req.body.done;
-    const title = req.body.title || null;
-    const due_date = req.body.due_date || null;
-    const list_id = req.body.list_id || null;
+    const name = req.body.name || null;
+    const dueDate = req.body.dueDate || null;
+    const listId = req.body.listId || null;
     const description = req.body.description || null;
-    putTask(id, done, title, due_date, list_id, description).then(t => res.json(t))
+    putTask(id, done, name, dueDate, listId, description).then(t => res.json(t))
         .catch(next)
 }
 function del(req, res, next) { // curl -X DELETE localhost:4000/tasks/14

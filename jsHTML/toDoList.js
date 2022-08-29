@@ -1,3 +1,43 @@
+function getTasks(task) {
+    return fetch('http://localhost:4000/tasks', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+    }).then(response => response.json())
+}
+
+function addTask(task) {
+    return fetch('http://localhost:4000/tasks', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+    }).then(response => response.json())
+        .catch(error)
+}
+
+function removeTask(id) {
+    return fetch('http://localhost:4000/tasks/' + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+}
+
+function updateTask(task) {
+    return fetch('http://localhost:4000/tasks/' + task.id, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+    })
+}
+
 const tasks = document.getElementById('tasks');
 const showTasksButtonElement = document.getElementById('showTasks');
 const inputTask = document.getElementsByName('name');
@@ -37,6 +77,10 @@ let data = [
     new Task(5, new Date('2022-08-26'), false, 'CSS Figma', 'to do adaptive mobile first'),
 ];
 
+function error() {
+    tasks.innerText = 'Something went wrong';
+}
+
 tasksForm.addEventListener('submit', (event) => {
     event.preventDefault();
     if (inputTask[0].value.trim() === null || inputTask[0].value.trim() === '') {
@@ -46,9 +90,8 @@ tasksForm.addEventListener('submit', (event) => {
         const formData = new FormData(tasksForm);
         const formTask = Object.fromEntries(formData.entries());
         data.push(new Task(data.id, onPushDate(inputDate[0].value), false, inputTask[0].value, inputDesc[0].value.trim()));
-        generateTasks(formTask);
-        console.log(data)
-        tasksForm.reset();
+        addTask(formTask).then(generateTasks)
+            .then(_ => tasksForm.reset())
         renderTask();
     }
 });

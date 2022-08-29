@@ -9,18 +9,18 @@ export function getSingleTask(id) {
     return knx.select('*').from('items').whereIn('id', [id])
 }
 
-export function createTask(done, title, due_date, list_id, description) {
-    return knx('items').insert({done, title, due_date, list_id, description}, '*')
+export function createTask(done, name, dueDate, listId, description) {
+    return knx('items').insert({done, name, dueDate, listId, description}, '*')
 }
 
-export function updateTask(id, done, title, due_date, list_id, description) {
+export function updateTask(id, done, name, dueDate, listId, description) {
     return knx('items').whereIn('id', [id])
-        .update({done, title, due_date, list_id, description}, '*')
+        .update({done, name, dueDate, listId, description}, '*')
 }
 
-export function putTask(id, done, title, due_date, list_id, description) {
+export function putTask(id, done, name, dueDate, listId, description) {
     return knx('items').whereIn('id', [id])
-        .update({done, title, due_date, list_id, description}, '*')
+        .update({done, name, dueDate, listId, description}, '*')
 }
 
 export function deleteTask(id) {
