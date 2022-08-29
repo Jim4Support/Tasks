@@ -34,17 +34,23 @@ let data = [
     new Task(2, new Date('2022-08-30'), false, 'officetask', 'make office work'),
     new Task(3, new Date('2022-08-29'), true, 'shopping', 'buy vegetables'),
     new Task(4, null, true, 'walk', 'go for a walk'),
-    new Task(5, new Date('2022-08-27'), false, 'CSS Figma', 'to do adaptive mobile first'),
+    new Task(5, new Date('2022-08-26'), false, 'CSS Figma', 'to do adaptive mobile first'),
 ];
 
 tasksForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const formData = new FormData(tasksForm);
-    const formTask = Object.fromEntries(formData.entries());
-    data.push(new Task(data.id, onPushDate(inputDate[0].value), false, inputTask[0].value, inputDesc[0].value));
-    generateTasks(formTask);
-    tasksForm.reset();
-    renderTask();
+    if (inputTask[0].value.trim() === null || inputTask[0].value.trim() === '') {
+        errorInput.innerText = 'Please, enter a task';
+    } else {
+        errorInput.innerText = '';
+        const formData = new FormData(tasksForm);
+        const formTask = Object.fromEntries(formData.entries());
+        data.push(new Task(data.id, onPushDate(inputDate[0].value), false, inputTask[0].value, inputDesc[0].value));
+        generateTasks(formTask);
+        console.log(data)
+        tasksForm.reset();
+        renderTask();
+    }
 });
 
 showTasksButtonElement.onclick = () => {
