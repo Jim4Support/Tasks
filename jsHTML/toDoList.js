@@ -1,11 +1,5 @@
-function getTasks(task) {
-    return fetch('http://localhost:4000/tasks', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(task)
-    }).then(response => response.json())
+function getTasks() {
+    return fetch('http://localhost:4000/tasks').then(response => response.json());
 }
 
 function addTask(task) {
@@ -143,8 +137,8 @@ function deleteTask(event) {
     const target = event.target.parentElement.parentElement;
     target.remove();
     const deleteParentId = target.id;
-    const task = data.find(t => t.id === +deleteParentId);
-    data.splice(data.indexOf(task), 1);
+    const taskIndex = data.findIndex(t => t.id === +deleteParentId);
+    data.splice(taskIndex, 1);
 }
 
 function doneSwitcher(event) {
