@@ -20,11 +20,11 @@ function getToday(req, res, next) { // curl localhost:4000/dashboard
 function todayTasks(req, res, next) { // curl localhost:4000/collections/today
     getTodayTasks().then(t => res.json(t.map(el => {
         return {
-            title: el.title,
-            item_id: el.items_id,
+            name: el.name,
+            itemId: el.id,
             done: el.done,
-            date: el.due_date,
-            list: {list_name: el.lists, list_id: el.list_id}
+            date: el.dueDate,
+            list: {listName: el.lists, listId: el.listId}
         }
     })))
         .catch(next)
