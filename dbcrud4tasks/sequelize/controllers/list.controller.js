@@ -9,7 +9,6 @@ export const findAll = (req, res, next) => {
 
 export const createList = (req, res, next) => {
     const names = req.body.name;
-    console.log(names)
     return List.create({name: names}).then(name => res.json(name))
         .catch(next)
 }

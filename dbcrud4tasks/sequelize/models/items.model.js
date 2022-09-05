@@ -1,6 +1,6 @@
 export function itemModel(sequelize, Sequelize) {
     return sequelize.define("items", {
-            title: {
+            name: {
                 type: Sequelize.STRING
             },
             id: {
