@@ -1,4 +1,6 @@
 import {db} from "../models/index.js";
+import Sequelize from "sequelize";
+const op = Sequelize.Op;
 
 const Item = db.item;
 
@@ -9,9 +11,12 @@ export const findAll = (req, res, next) => {
             association: db.itemList,
             as: 'items',
         }],
-        where: {dueDate: today}
+        where: {
+            dueDate: {
+              [op.lte]: today
+            }
+        },
+        order: [['dueDate', 'ASC']]
     }).then(data => res.json(data))
         .catch(next)
 }
-// where: { dueDate: { [Op.lte]: today } },
-//     order: [['dueDate', 'ASC']]
