@@ -13,4 +13,5 @@ export const findAll = (req, res, next) => {
     }).then(data => res.json(data))
         .catch(next)
 }
-
+// where: { dueDate: { [Op.lte]: today } },
+//     order: [['dueDate', 'ASC']]
