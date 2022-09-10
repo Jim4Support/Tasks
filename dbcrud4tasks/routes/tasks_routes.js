@@ -12,7 +12,7 @@ router.delete('/tasks/:id', del);
 
 function create(req, res, next) { // curl localhost:4000/tasks -d '{"name": "created task", "done": false, "dueDate": "2022-10-12", "description": "some desc", "listId": 1}' -H "Content-Type: application/json"
     const {done, name, dueDate, listId, description} = req.body;
-    createTask(done, name, dueDate, listId, description).then(t => res.status(201).json(t))
+    createTask(done, name, new Date(dueDate), listId, description).then(t => res.status(201).json(t))
         .catch(next)
 }
 function get(req, res, next) { // curl localhost:4000/tasks
