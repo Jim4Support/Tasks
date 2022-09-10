@@ -29,7 +29,7 @@ function getSingle(req, res, next) { // curl localhost:4000/tasks/2
 function update(req, res, next) { // curl -X PATCH localhost:4000/tasks/14 -d '{"name": "Changed", "done": true, "dueDate": "2022-08-13", "listId": 2, "description": "changed" }' -H "Content-Type: application/json"
     const id = req.params.id;
     getSingleTask(id).then(oldTask => Object.assign(oldTask, req.body))
-        .then(({done, name, dueDate, listId, description}) => updateTask(id, done, name, dueDate, listId, description))
+        .then(({done, name, dueDate, listId, description}) => updateTask(id, done, name, new Date(dueDate), listId, description))
         .then(t => res.json(t))
         .catch(next)
 }
