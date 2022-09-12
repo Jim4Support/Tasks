@@ -45,7 +45,9 @@ function put(req, res, next) { // curl -X PUT localhost:4000/tasks/14 -d '{"name
 }
 function del(req, res, next) { // curl -X DELETE localhost:4000/tasks/14
     const id = req.params.id;
-    deleteTask(id).then(t => res.json(t))
+    let data;
+    getSingleTask(id).then(d => data = d);
+    deleteTask(id).then(() => res.json(data))
         .catch(next)
 }
 
